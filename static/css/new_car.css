@@ -1,0 +1,40 @@
+.form-group {
+    background-color: rgba(245, 245, 245, 0.459);
+    padding: 20px;
+    border-radius: 10px; /* Borda arredondada */
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.8); /* Sombra */
+    width: 400px; /* Largura específica do formulário */
+    margin: 0 auto; /* Centraliza o formulário na horizontal */
+    margin-top: 50px; /* Espaçamento superior */
+}
+
+
+.buttons input {
+    color: #fff;
+    background-color: #007bff;
+    border: transparent;
+    padding: 7px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    outline: none;
+    font-size: 14px;
+    font-family: 'lato';
+}
+
+.buttons a {
+    color: #fff;
+    background-color: #007bff;
+    border: transparent;
+    padding: 7px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    outline: none;
+    text-decoration: none;
+    font-size: 14px;
+    font-family: 'lato';
+}
+
+.buttons input:hover,
+.buttons a:hover {
+    background-color: #0056b3;
+}

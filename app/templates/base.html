@@ -1,0 +1,178 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'fontes.css' %}">
+  <title>{% block title %}{% endblock %}</title>
+  <style>
+    body {
+        font-family: 'lato6';
+        background-image: url("{% static 'img/ImgDeFundoBaseHtml.jpg' %}");
+        background-size: cover;
+        color: #333;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh; /* Define a altura mínima da viewport */
+    }
+
+    header {
+        background-color: #0096c7;
+        color: #fff;
+        text-align: center;
+    }    
+
+    nav {
+        background-color: #000000;
+        color: #fff;
+        height: 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    nav ul {
+        list-style: none;
+        margin-left: 0.5rem;
+        padding: 0;
+        display: flex;
+        justify-content: space-between; /* Distribui os itens uniformemente */
+        align-items: center;
+        width: 100%; /* Garante que ocupe toda a largura disponível */
+    }
+
+    nav ul li {
+        position: relative;
+    }
+
+    nav ul li a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 16px;
+        padding: 15px;
+        transition: all 0.3s ease;
+    }
+
+    nav ul li::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 7%;
+        width: 0;
+        height: 1px;
+        background-color: #fff;
+        transition: width 0.5s ease;
+    }
+
+    nav ul li:hover::after {
+        width: 85%;
+    }
+
+    nav ul li a:hover {
+        color: #fff;
+    }
+
+    nav ul li.active a {
+        background-color: #666;
+    }
+
+    nav ul li.active a:hover {
+        background-color: #999;
+    }
+
+    .user-greeting {
+        text-decoration: wavy;
+        font-weight: bold;
+        color: #ffffff;
+    }
+
+    .user-greeting::after {
+        content: none;
+    }
+
+    .company-name {
+        user-select: none;
+        text-decoration: wavy;
+        color: #ffffff;
+        margin-left: auto; /* Move o elemento para a direita ocupando todo o espaço disponível */
+        padding-right: 20px; /* Adiciona um espaçamento à direita para separar dos outros elementos */
+        font-family: "lato2";
+    }
+
+    .company-name::after {
+        content: none;
+    }
+
+    
+    footer {
+        font-family: 'lato3';
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50px;
+        background-color: transparent;
+        font-size: 20px;
+        animation: slide 12s linear infinite;
+        color: rgb(255, 255, 255);
+        user-select: none;
+        margin-top: auto;
+    }
+    
+    /* Mantenha o seu estilo de animação para o footer */
+    @keyframes slide {
+        0% {
+            transform: translateX(100%);
+        }
+        100% {
+            transform: translateX(-100%);
+        }
+    }
+</style>
+
+
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        {% if user.is_authenticated %}
+          <li class="user-greeting">Hello, {{ user.username }}</li>
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="{% url 'new_car' %}">Register Car</a></li>
+          {% endif %}
+          
+          {% if not user.is_authenticated %}
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="{% url 'register' %}">Register</a></li>
+          <li><a href="{% url 'login' %}">Login</a></li>
+        {% endif %}
+          
+        <li><a href="{% url 'cars_list' %}">Cars</a></li>
+        <li><a href="{% url 'new_contact' %}">Contact</a></li>
+          
+        {% if user.is_authenticated %}
+          <li><a href="{% url 'logout' %}">Logout</a></li>
+        {% endif %}
+
+        <li class="company-name">Zezinho Multimarcas</li>
+      </ul>
+    </nav>
+  </header>
+
+
+  <main>
+    {% block content %}
+    {% endblock %}
+  </main>
+
+  <footer>
+    <p>&copy; 2023 Zezinho Multimarcas</p>
+  </footer>
+</body>
+</html>
+          
+

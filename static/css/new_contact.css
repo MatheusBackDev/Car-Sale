@@ -1,0 +1,92 @@
+.contact-form {
+    background-color: rgba(245, 245, 245, 0.459);
+    padding: 20px;
+    border-radius: 10px; /* Borda arredondada */
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.8); /* Sombra */
+    width: 300px; /* Largura específica do formulário */
+    margin: 0 auto; /* Centraliza o formulário na horizontal */
+    margin-top: 50px; /* Espaçamento superior */
+}
+
+.contact-form .form-group {
+    margin-bottom: 15px;
+}
+
+.contact-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="password"] {
+    width: calc(100% - 12px); /* Largura do input, ajustando para o padding */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+}
+
+.contact-form input[type="submit"] {
+    background-color: #007bff; /* Cor de fundo do botão */
+    color: #fff; /* Cor do texto do botão */
+    border: none;
+    padding: 12px 24px;
+    cursor: pointer;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+}
+
+.contact-form input[type="submit"]:hover {
+    background-color: #0056b3; /* Cor de fundo do botão ao passar o mouse */
+}
+
+/* ------------------------------- More Data ------------------------------------- */
+
+
+.more-data {
+    margin-top: 8rem;
+}
+
+.more-data div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    color: #fff;
+}
+
+.more-data p {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.more-data p i {
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+.more-data iframe {
+    width: 100%;
+    height: 300px;
+    margin-top: 1rem;
+}
+
+/* Estilização animada e atraente
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-30px);
+    }
+    60% {
+        transform: translateY(-15px);
+    }
+} */
+

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Car</title>
+</head>
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+
+<body>
+    <div class="form-group">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <table>
+                {{ form.as_table }}
+            </table>
+
+            <div class="buttons">
+                <input type="submit" value="Cadastrar" class="btn btn-primary">
+                <input type="reset" value="Limpar" class="btn btn-secundary">
+                <a href="{% url 'cars_list' %}">Cancelar</a>
+            </div>
+    </div>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/new_car.css' %}">
+</body>
+{% endblock %}
+</html>

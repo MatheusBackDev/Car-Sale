@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+<body>
+    <div class="login-form">
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ login_form.username.errors }}
+                <label>Username: </label>
+                {{ login_form.username }}
+            </div>
+            <div class="form-group">
+                {{ login_form.password.errors }}
+                <label>Password: </label>
+                {{ login_form.password }}
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Entrar">
+            </div>
+        </form>
+    </div>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+</body>
+{% endblock %}
+</html>
+

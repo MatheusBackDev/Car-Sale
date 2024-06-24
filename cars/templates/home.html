@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<body>
+    <div class="container">
+        <div class="image-container">
+            <img id="primeirocard1" src="{% static 'img\CarHome1.jpg' %}" alt="Primeiro Card">
+        </div>
+        <div class="image-container">
+            <img id="primeirocard2" src="{% static 'img\CarHome2.jpg' %}" alt="Segundo Card">
+        </div>
+        <div class="text-container">
+            <h1>Inovação e tradição, reunidas em cada modelo</h1>
+            <p>Honestidade e qualidade definem nossa jornada automotiva. Compre, venda e gerencie carros com a segurança que você merece.</p>
+        </div>
+    </div>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+</body>
+{% endblock %}
+</html>
