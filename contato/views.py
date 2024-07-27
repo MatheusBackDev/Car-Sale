@@ -1,11 +1,7 @@
-from django.shortcuts import render
 from contato.models import Contact
 from django.urls import reverse_lazy
 from contato.forms import ContactForm
 from django.views.generic import CreateView
-
-
-
 
 
 class NewContactView(CreateView):

@@ -14,17 +14,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 load_dotenv()
 SECRET_KEY = os.getenv('KEY_SECRET')
 
-
-
-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
-
 INSTALLED_APPS = [
     'jazzmin',
     'django.contrib.admin',
@@ -41,9 +36,9 @@ INSTALLED_APPS = [
 JAZZMIN_SETTINGS = {
     'site_title': 'Zezinho Multimarcas',
     'site_brand': 'ZM',
-    'site_logo': 'img\LogoLogin.png',
+    'site_logo': 'img/LogoLogin.png',
     'welcome_sign': 'Bem-Vindo',
-    'login_logo': 'img\LogoLogin.png',
+    'login_logo': 'img/LogoLogin.png',
     'copyright': 'Zezinho Multimarcas ltd',
     "topmenu_links": [
         {"name": "Início", "url": "admin:index", "permissions": ["auth.view_user"]},

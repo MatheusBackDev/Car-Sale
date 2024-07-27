@@ -14,7 +14,6 @@ def register_view(request):
     return render(request, 'register.html', {'user_form': user_form})
 
 
-
 def login_view(request):
     if request.method == "POST":
         username = request.POST['username']
@@ -28,7 +27,6 @@ def login_view(request):
     else:
         login_form = AuthenticationForm()
     return render(request, 'login.html', {'login_form': login_form})
-
 
 
 def logout_view(request):

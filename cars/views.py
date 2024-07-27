@@ -8,8 +8,8 @@ from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 
-# ---------------------------- Function based views (Não estamos utilizando) --------------------------------
 
+# ---------------------------- Function based views (Não estamos utilizando) --------------------------------
 def cars_view(request):
     cars = Car.objects.all().order_by('model')
     search = request.GET.get('search')
@@ -19,8 +19,9 @@ def cars_view(request):
     return render(
         request,
         'cars.html',
-        {'cars': cars }
+        {'cars': cars}
     )
+
 
 # method GET and method POST
 def new_car_view(request):
@@ -30,24 +31,21 @@ def new_car_view(request):
             new_car_form.save()
             return redirect('cars_list')
 
-    else: #method GET
+    else:
         new_car_form = CarModelForm()
     return render(request, 'new_car.html', {'new_car_form': new_car_form})
 
 
-
 # -------------------------------- Class based views (Não estamos utilizando) ---------------------------------------
-
 class CarsView(View):
-    
+
     def get(self, request):
         cars = Car.objects.all().order_by('model')
         search = request.GET.get('search')
         if search:
             cars = cars.filter(Q(model__icontains=search) | Q(brand__name__icontains=search)).order_by('model')
-        
-        return render(request, 'cars.html', {'cars': cars})
 
+        return render(request, 'cars.html', {'cars': cars})
 
 
 class NewCarView(View):
@@ -55,7 +53,7 @@ class NewCarView(View):
     def get(self, request):
         new_car_form = CarModelForm()
         return render(request, 'new_car.html', {'new_car_form': new_car_form})
-    
+
     def post(self, request):
         new_car_form = CarModelForm(request.POST, request.FILES)
         if new_car_form.is_valid():
@@ -64,13 +62,10 @@ class NewCarView(View):
         return render(request, 'new_car.html', {'new_car_form': new_car_form})
 
 
-
-# ---------- ListView, CreateView, DetailView, UpdateView and DeleteView (generic views) ---------- 
+# ---------- ListView, CreateView, DetailView, UpdateView and DeleteView (generic views) ----------
 # ----------------------------------- (Sim, estamos utilizando) -----------------------------------
-
 def home_view(request):
     return render(request, 'home.html')
-
 
 
 class CarListView(ListView):
@@ -85,7 +80,7 @@ class CarListView(ListView):
             cars = cars.filter(Q(model__icontains=search) | Q(brand__name__icontains=search)).order_by('model')
         return cars
 
-    
+
 class CarDetailView(DetailView):
     model = Car
     template_name = 'car_detail.html'
@@ -104,7 +99,7 @@ class CarUpdateView(UpdateView):
     model = Car
     form_class = CarModelForm
     template_name = 'car_update.html'
-    
+
     def get_success_url(self):
         return reverse_lazy('car_detail', kwargs={'pk': self.object.pk})
 
